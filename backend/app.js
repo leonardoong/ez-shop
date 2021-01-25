@@ -38,9 +38,10 @@ app.use(cors());
 app.options("*", cors());
 
 //Middleware
-app.use(morgan("tiny"));
 app.use(bodyParser.json());
+app.use(morgan("tiny"));
 app.use(authJwt());
+app.use("/public/upload", express.static(__dirname + "/public/upload"));
 app.use(errorHandler);
 
 //Router
